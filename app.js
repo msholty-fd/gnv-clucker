@@ -29,7 +29,11 @@ async function loadClucks() {
   for (var i in reversedClucks) {
     var cluck = reversedClucks[i];
     var li = document.createElement("li");
-    li.innerHTML = cluck.text;
+    var contents = cluck.text;
+    if (cluck.name) {
+      contents = cluck.name + ": " + cluck.text;
+    }
+    li.textContent = contents;
     clucks.appendChild(li);
   }
 }
